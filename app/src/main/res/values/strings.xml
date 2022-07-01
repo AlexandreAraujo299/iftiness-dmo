@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">My Shopping List</string>
+    <string name="my_shopping_list">My Shopping List</string>
+    <!-- menu -->
+    <string name="menu_drawer_home">Home</string>
+    <string name="menu_drawer_cadastro_user">Cadastrar Usuário</string>
+    <string name="menu_drawer_perfil">Perfil</string>
+    <string name="menu_drawer_cadastro_categoria">Cadastrar Categoria</string>
+    <string name="menu_drawer_registrar_item">Inserir Item de Compra</string>
+    <string name="menu_drawer_sair">Sair</string>
+    <string name="menu_header_entrar">Entrar</string>
+    <!-- tela principal -->
+    <string name="toogle_open">Abrir</string>
+    <string name="toogle_close">Fechar</string>
+    <string name="main_txt_categorias">Categorias</string>
+    <string name="main_txt_itens_inseridos_recentemente">Esportes Inseridos Recentemente</string>
+    <!-- tela cadastro de usuário -->
+    <string name="usuario_cadastro_titulo">Cadastro de Usuário</string>
+    <string name="usuario_cadastro_nome">Nome</string>
+    <string name="usuario_cadastro_sobrenome">Sobrenome</string>
+    <string name="usuario_cadastro_email">Email</string>
+    <string name="usuario_cadastro_senha">Senha</string>
+    <string name="usuario_cadastro_cadastrar">Cadastrar</string>
+    <!-- tela login -->
+    <string name="usuario_login_email">Email</string>
+    <string name="usuario_login_senha">Senha</string>
+    <string name="usuario_login_entrar">Entrar</string>
+    <string name="login_txt_esqueceu_sua_senha">Esqueceu sua senha?</string>
+    <string name="login_txt_nao_tem_cadastro">Não tem cadastro?</string>
+    <!-- tela perfil do usuário -->
+    <string name="usuario_perfil_renda">Renda Familiar (R$/mês)</string>
+    <string name="usuario_perfil_numero_pessoas">Número de pessoas</string>
+    <string name="usuario_perfil_limpar">Limpar</string>
+    <string name="usuario_perfil_salvar">Salvar</string>
+    <string name="usuario_login_titulo">Login</string>
+    <string name="usuario_perfil_titulo">Perfil do Usuário</string>
+    <string name="perfil_txt_socioeconomicas">Informações Socioeconômicas</string>
+    <!-- tela cadastro de categoria -->
+    <string name="categoria_cadastro_nome">Nome da Categoria</string>
+    <string name="categoria_cadastro_titulo">Cadastro de Categoria</string>
+    <!-- tela de cadastro de item -->
+    <string name="item_cadastro_nome">Nome</string>
+    <string name="item_cadastro_qtd">Quantidade</string>
+    <string name="item_cadastro_unidade">Unidade</string>
+    <string name="item_cadastro_preco">Preço (R$)</string>
+    <string name="item_compra_cadastro_titulo">Cadastro de Item de Compra</string>
+
+    <string-array name="categorias">
+        <item>bebidas</item>
+        <item>carnes</item>
+        <item>frios</item>
+        <item>frutas</item>
+        <item>verduras</item>
+        <item>limpeza</item>
+        <item>higiene pessoal</item>
+    </string-array>
+
+    <string-array name="unidades">
+        <item>unidade</item>
+        <item>dúzia</item>
+        <item>litro</item>
+        <item>Kg</item>
+        <item>caixa</item>
+        <item>pacote</item>
+    </string-array>
+</resources>

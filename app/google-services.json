@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "712334736907",
+    "project_id": "iftiness",
+    "storage_bucket": "iftiness.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712334736907:android:fd87ccc19fe2c79934d10e",
+        "android_client_info": {
+          "package_name": "com.dmo.iftiness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712334736907-cisurgms0iunrh8pm6rjk45oacstqqbf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK-mEb4JLLxIbhYY4BCHFZ4pzxrc-mWaA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "712334736907-cisurgms0iunrh8pm6rjk45oacstqqbf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
