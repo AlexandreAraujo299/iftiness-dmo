@@ -50,8 +50,10 @@ public class UsuarioViewModel extends AndroidViewModel{
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplication());
         Optional<String> id = Optional.ofNullable(sharedPreferences.getString(USUARIO_ID, null));
         if(!id.isPresent()){
+            System.out.println("not present");
             return new MutableLiveData<>(null);
         }
+
         return usuariosRepository.load(id.get());
     }
 

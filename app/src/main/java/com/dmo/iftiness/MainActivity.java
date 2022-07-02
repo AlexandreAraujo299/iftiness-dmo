@@ -101,11 +101,6 @@ public class MainActivity extends AppCompatActivity {
                     String perfilImage = PreferenceManager
                             .getDefaultSharedPreferences(MainActivity.this)
                             .getString(MediaStore.EXTRA_OUTPUT, null);
-                    if (perfilImage != null) {
-                        imagePerfil.setImageURI(Uri.parse(perfilImage));
-                    } else {
-                        imagePerfil.setImageResource(R.drawable.profile_image);
-                    }
                 }
             }
         });

@@ -170,6 +170,8 @@ public class UsuariosRepository {
             Usuario usuario = snapshot.toObject(Usuario.class);
 
             usuario.setId(usuario.getId());
+
+            liveData.setValue(usuario);
         });
 
         return liveData;
