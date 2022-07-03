@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AtividadeFisicaCadastroActivity"
+    tools:context=".AtividadeDetalheActivity"
     android:orientation="vertical"
     android:gravity="center_horizontal">
 
@@ -87,14 +87,24 @@
                 app:maskStyle="persistent" />
 
 
+
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="8dp"
-                android:id="@+id/btn_cadastrar_atividade"
-                android:text="Cadastrar"/>
+                android:id="@+id/btn_salvar"
+                android:text="@string/usuario_perfil_salvar"/>
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                android:id="@+id/btn_excluir_atividade"
+                android:text="Excluir"
+                android:backgroundTint="#ff0000"/>
 
         </LinearLayout>
 

@@ -22,7 +22,10 @@ import com.dmo.iftiness.viewmodel.AtividadeViewModel;
 import com.dmo.iftiness.viewmodel.UsuarioViewModel;
 import com.google.android.material.textfield.TextInputEditText;
 
-public class AtividadeFisicaCadastroActivity extends AppCompatActivity {
+import java.util.List;
+
+public class AtividadeDetalheActivity extends AppCompatActivity {
+
     private Atividade atividade;
     private Toolbar toolbar;
     private TextView txtTitulo;
@@ -31,7 +34,8 @@ public class AtividadeFisicaCadastroActivity extends AppCompatActivity {
     private TextInputEditText txtDataAtividade;
     private Spinner spCategoria;
     private Spinner spinner;
-    private Button btnCadastrar;
+    private Button btnSalvar;
+    private Button btnDeletar;
 
     private AtividadeViewModel atividadeViewModel;
     private UsuarioViewModel usuarioViewModel;
@@ -40,8 +44,9 @@ public class AtividadeFisicaCadastroActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_atividade_fisica_cadastro);
+        setContentView(R.layout.activity_atividade_detalhe);
 
+        atividade = (Atividade) getIntent().getSerializableExtra("ATIVIDADE");
 
         spinner = (Spinner) findViewById(R.id.categoria_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categorias_array, android.R.layout.simple_spinner_item);
@@ -54,38 +59,57 @@ public class AtividadeFisicaCadastroActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         txtTitulo = findViewById(R.id.toolbar_titulo);
-        txtTitulo.setText("Cadastrar Atividade");
+        txtTitulo.setText("Atividade");
 
 
         txtDistancia = findViewById(R.id.txt_edit_distancia);
+        txtDistancia.setText(String.valueOf(atividade.getDistancia()));
 
         txtDuracao = findViewById(R.id.txt_edit_duracao);
+        txtDuracao.setText(String.valueOf(atividade.getDuracao()));
 
         txtDataAtividade = findViewById(R.id.input_data_atividade);
+        txtDataAtividade.setText(atividade.getData_atividade());
 
         spCategoria = findViewById(R.id.categoria_spinner);
+
+        String[] categorias = getResources().getStringArray(R.array.categorias_array);
+        for (int i = 0; i < categorias.length; i++){
+            if(categorias[i].equals(atividade.getCategoria())){
+                spCategoria.setSelection(i);
+            }
+        }
 
         atividadeViewModel = new ViewModelProvider(this)
                 .get(AtividadeViewModel.class);
         usuarioViewModel = new ViewModelProvider(this)
                 .get(UsuarioViewModel.class);
 
-        btnCadastrar = findViewById(R.id.btn_cadastrar_atividade);
-        btnCadastrar.setOnClickListener(new View.OnClickListener() {
+
+
+        btnDeletar = findViewById(R.id.btn_excluir_atividade);
+        btnDeletar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                insert();
+                atividadeViewModel.delete(atividade);
+                finish();
             }
         });
 
+        btnSalvar = findViewById(R.id.btn_salvar);
+        btnSalvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                update();
+            }
+        });
     }
 
-    public void insert(){
+    public void update(){
         if(!validate()){
             return;
         }
 
-        atividade = new Atividade();
         atividade.setData_atividade(txtDataAtividade.getText().toString());
         atividade.setCategoria(spCategoria.getSelectedItem().toString());
         atividade.setDistancia(Double.parseDouble(txtDistancia.getText().toString()));
@@ -94,7 +118,7 @@ public class AtividadeFisicaCadastroActivity extends AppCompatActivity {
 
         atividadeViewModel.update(atividade);
         Toast.makeText(this, "Sucesso!", Toast.LENGTH_SHORT).show();
-        finish();
+
     }
 
     private boolean validate(){
@@ -136,7 +160,7 @@ public class AtividadeFisicaCadastroActivity extends AppCompatActivity {
                 if (usuario != null) {
                     user = usuario;
                 } else {
-                    startActivity(new Intent(AtividadeFisicaCadastroActivity.this,
+                    startActivity(new Intent(AtividadeDetalheActivity.this,
                             UsuarioLoginActivity.class));
                     finish();
                 }

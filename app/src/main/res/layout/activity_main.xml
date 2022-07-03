@@ -58,10 +58,13 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
+                        android:layout_height="50dp"
                         android:text="@string/main_txt_itens_inseridos_recentemente"
                         android:textAppearance="@android:style/TextAppearance.Medium"/>
-
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rvAtividade"/>
                 </LinearLayout>
 
             </LinearLayout>

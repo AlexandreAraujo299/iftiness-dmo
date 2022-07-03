@@ -13,7 +13,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        Intent intent = new Intent(this, UsuarioLoginActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override

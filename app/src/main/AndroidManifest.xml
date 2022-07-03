@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IFtiness">
         <activity
+            android:name=".AtividadeDetalheActivity"
+            android:exported="false" />
+        <activity
             android:name=".UsuarioCadastroActivity"
             android:exported="false" />
         <activity

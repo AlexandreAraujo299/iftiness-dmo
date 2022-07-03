@@ -45,12 +45,12 @@ public class UsuarioViewModel extends AndroidViewModel{
                 .apply();
     }
 
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     public LiveData<Usuario> isLogged(){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplication());
         Optional<String> id = Optional.ofNullable(sharedPreferences.getString(USUARIO_ID, null));
         if(!id.isPresent()){
-            System.out.println("not present");
             return new MutableLiveData<>(null);
         }
 

@@ -9,9 +9,12 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,10 +23,17 @@ import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.dmo.iftiness.adapter.AtividadeAdapter;
+import com.dmo.iftiness.model.Atividade;
 import com.dmo.iftiness.model.Usuario;
+import com.dmo.iftiness.viewmodel.AtividadeViewModel;
 import com.dmo.iftiness.viewmodel.UsuarioViewModel;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.List;
+import java.util.Optional;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,8 +42,13 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private TextView txtTitulo, txtLogin;
     private UsuarioViewModel usuarioViewModel;
-    private ImageView imagePerfil;
+    private AtividadeViewModel atividadeViewModel;
 
+    private RecyclerView rvProduto;
+    private AtividadeAdapter atividadeAdapter;
+
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
 
         usuarioViewModel = new ViewModelProvider(this)
                 .get(UsuarioViewModel.class);
+        atividadeViewModel = new ViewModelProvider(this)
+                .get(AtividadeViewModel.class);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -69,14 +86,14 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(MainActivity.this, UsuarioPerfilActivity.class);
                         startActivity(intent);
                         break;
-                    case R.id.nav_register_category:
+                    case R.id.nav_register_atividade:
                         intent = new Intent(MainActivity.this, AtividadeFisicaCadastroActivity.class);
                         startActivity(intent);
                         break;
-                    case R.id.nav_register_item:
-                        intent = new Intent(MainActivity.this, EstatisticasActivity.class);
-                        startActivity(intent);
-                        break;
+                    case R.id.nav_sair:
+                        usuarioViewModel.logout();
+                        finish();
+                        startActivity(getIntent());
                 }
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
@@ -88,6 +105,16 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, UsuarioLoginActivity.class);
             startActivity(intent);
         });
+
+
+
+        rvProduto = findViewById(R.id.rvAtividade);
+        atividadeAdapter = new AtividadeAdapter(MainActivity.this);
+
+        rvProduto.setAdapter(atividadeAdapter);
+        rvProduto.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
+
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -98,9 +125,18 @@ public class MainActivity extends AppCompatActivity {
             public void onChanged(Usuario usuario) {
                 if (usuario != null) {
                     txtLogin.setText(usuario.getNome());
-                    String perfilImage = PreferenceManager
-                            .getDefaultSharedPreferences(MainActivity.this)
-                            .getString(MediaStore.EXTRA_OUTPUT, null);
+                    atividadeViewModel.loadAll(usuario.getId()).observe(MainActivity.this, new Observer<List<Atividade>>() {
+                        @Override
+                        public void onChanged(List<Atividade> atividades) {
+                            atividadeAdapter.setProdutos(atividades);
+                            atividadeAdapter.notifyDataSetChanged();
+                            rvProduto.setAdapter(atividadeAdapter);
+                        }
+                    });
+                } else {
+                    startActivity(new Intent(MainActivity.this,
+                            UsuarioLoginActivity.class));
+                    finish();
                 }
             }
         });

@@ -5,11 +5,12 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 
 @Entity(tableName = "usuario")
-public class Usuario {
+public class Usuario implements Serializable {
     @NonNull
     @PrimaryKey
     private String id;
