@@ -53,7 +53,7 @@
         android:id="@+id/btn_usuario_login"
         android:layout_margin="8dp"
         android:text="@string/usuario_login_entrar"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+        style="@style/Widget.MaterialComponents.Button"/>
 
     <TextView
         android:layout_width="match_parent"

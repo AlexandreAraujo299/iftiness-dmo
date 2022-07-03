@@ -43,7 +43,19 @@ public class AtividadeAdapter extends RecyclerView.Adapter<AtividadeAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Atividade atividade = atividades.get(position);
-        holder.icon.setImageResource(R.drawable.banner);
+        if (atividade.getCategoria().equals("Corrida")){
+            holder.icon.setImageResource(R.mipmap.ic_corrida_round);
+        }
+        if (atividade.getCategoria().equals("Caminhada")){
+            holder.icon.setImageResource(R.mipmap.ic_caminhada_round);
+        }
+        if (atividade.getCategoria().equals("Natação")){
+            holder.icon.setImageResource(R.mipmap.ic_natacao_round);
+        }
+        if (atividade.getCategoria().equals("Ciclismo")){
+            holder.icon.setImageResource(R.mipmap.ic_ciclismo_round);
+        }
+
         holder.titulo.setText(atividade.getCategoria());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
