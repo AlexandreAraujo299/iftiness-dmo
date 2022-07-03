@@ -2,7 +2,6 @@ package com.dmo.iftiness.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +35,7 @@ public class AtividadeAdapter extends RecyclerView.Adapter<AtividadeAdapter.View
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_produto, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_atividade, parent, false);
         return new ViewHolder(view);
     }
 

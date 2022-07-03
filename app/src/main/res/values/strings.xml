@@ -5,7 +5,6 @@
     <string name="menu_drawer_cadastro_user">Cadastrar Usuário</string>
     <string name="menu_drawer_perfil">Perfil</string>
     <string name="menu_drawer_cadastro_atividade">Cadastrar Atividade</string>
-    <string name="menu_drawer_registrar_item">Inserir Item de Compra</string>
     <string name="menu_drawer_sair">Sair</string>
     <string name="menu_header_entrar">Entrar</string>
     <!-- tela principal -->
