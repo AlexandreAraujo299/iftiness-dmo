@@ -90,10 +90,15 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(MainActivity.this, AtividadeFisicaCadastroActivity.class);
                         startActivity(intent);
                         break;
+                    case R.id.estatistica:
+                        intent = new Intent(MainActivity.this, EstatisticasActivity.class);
+                        startActivity(intent);
+                        break;
                     case R.id.nav_sair:
                         usuarioViewModel.logout();
                         finish();
                         startActivity(getIntent());
+                        break;
                 }
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;

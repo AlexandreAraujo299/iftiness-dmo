@@ -7,12 +7,14 @@
         <entry key="..\:/AndroidProjects/IFtiness2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1315" />
         <entry key="..\:/AndroidProjects/IFtiness2/app/src/main/res/layout/activity_atividade_detalhe.xml" value="0.19305019305019305" />
         <entry key="..\:/AndroidProjects/IFtiness2/app/src/main/res/layout/activity_atividade_fisica_cadastro.xml" value="0.1" />
-        <entry key="..\:/AndroidProjects/IFtiness2/app/src/main/res/layout/activity_estatisticas.xml" value="0.2" />
-        <entry key="..\:/AndroidProjects/IFtiness2/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/AndroidProjects/IFtiness2/app/src/main/res/layout/activity_estatisticas.xml" value="0.18" />
+        <entry key="..\:/AndroidProjects/IFtiness2/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/AndroidProjects/IFtiness2/app/src/main/res/layout/activity_splash.xml" value="0.2" />
         <entry key="..\:/AndroidProjects/IFtiness2/app/src/main/res/layout/activity_usuario_cadastro.xml" value="0.2" />
         <entry key="..\:/AndroidProjects/IFtiness2/app/src/main/res/layout/activity_usuario_login.xml" value="0.2" />
         <entry key="..\:/AndroidProjects/IFtiness2/app/src/main/res/layout/activity_usuario_perfil.xml" value="0.2" />
+        <entry key="..\:/AndroidProjects/IFtiness2/app/src/main/res/layout/estatistica_atividade.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/IFtiness2/app/src/main/res/layout/item_atividade.xml" value="0.4355179704016913" />
         <entry key="..\:/AndroidProjects/IFtiness2/app/src/main/res/layout/item_produto.xml" value="0.28901734104046245" />
         <entry key="..\:/AndroidProjects/IFtiness2/app/src/main/res/layout/menu_header_layout.xml" value="0.2" />
         <entry key="..\:/AndroidProjects/IFtiness2/app/src/main/res/layout/menu_navigation_view.xml" value="0.2" />
